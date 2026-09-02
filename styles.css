@@ -1,0 +1,15 @@
+.header{
+    background-color: rgb(2, 48, 6);
+    color:aliceblue;
+    display: flex;
+}
+.nav {
+    color: aliceblue;
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+}
+
+.li {
+    padding: 10px;
+}
