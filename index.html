@@ -1,36 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
         <title>Eagle Creek Golf Club</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/lucide@latest"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
-    <body>
-        <header class="header">
 
-            <h1>Stay&Play</h1>
-            <nav>
-                <ul class="nav">
-                    <li class="li">HOME</li>
-                    <li class="li">WHERE TO PLAY</li>
-                    <li class="li">GROUP TRAVEL</li>
-                    <li class="li">BOOK A TEE TIME</li>
-                </ul>
+
+    <body>
+
+        <!-- Site Header / Navbar -->
+        <header class="site-header">
+            <nav class="nav">
+                <a href="/" class="logo" aria-label="Stay and Play homepage"><img src="/icons/logo.png" alt="logo">Stay&amp;Play</a>
+                <div class="nav-right">
+                    <ul class="nav-items">
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">WHERE TO STAY</a></li>
+                        <li><a href="#">WHERE TO PLAY</a></li>
+                        <li><a href="#">GROUP TRAVEL</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <button class="btn btn-tee-time">BOOK A TEE TIME
+                        </button>
+                        <button class="btn btn-search">Search<i data-lucide="search"></i></button>
+                        <button class="btn btn-book-tee-time"><i data-lucide="land-plot"></i></button>
+                        <button class="btn btn-search-icon"><i data-lucide="search"></i></button>
+                        <button class="btn btn-menu"><i data-lucide="menu"></i></button>
+                    </div>
+                </div>
             </nav>
         </header>
+
+
+        <!-- Main Content -->
         <main>
             <section>
                 <article>
-
+                    <h2>Welcome to Eagle Creek Golf Club</h2>
                 </article>
-            </section> 
+            </section>
+
+            
+            <!-- Side Content -->
             <aside>
 
             </aside>
         </main>
+
+
+        <!-- Site Footer -->
         <footer>
 
         </footer>
+        <script>
+            lucide.createIcons();
+        </script>
     </body>
 </html>

@@ -1,15 +1,189 @@
-.header{
-    background-color: rgb(2, 48, 6);
-    color:aliceblue;
-    display: flex;
-}
-.nav {
-    color: aliceblue;
-    list-style-type: none;
-    display: flex;
-    text-align: center;
+:root {
+    --color-bg: #ffffff; /* Background color */
+    --color-dark: #1b2b1e; /* Navigation and headlines */
+    --color-text: #1f2a20; /* Text color */
+    --color-lightgreen: lightgreen; /* lightgreen color */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+    --max-width: 1200px;
+    --min-width: 768px;
+    --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.li {
-    padding: 10px;
+* {
+    box-sizing: border-box;
 }
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========== Design of Navigation Bar ============ */
+.site-header {
+    background-color: var(--color-dark);
+    color:#fff;
+}
+
+/* Navbar */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-2);
+}
+
+
+/*Navigation Items*/
+.nav-items {
+    display: flex;
+    list-style: none;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+/*Nav-right*/
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    font-weight: 500;
+    font-size: var(--space-5);
+    align-items: center;
+    gap: var(--space-1);
+    color: inherit;
+    flex-shrink: 0;
+}
+
+/*Button Styles*/
+
+.nav-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.btn-tee-time {
+  background-color: var(--color-lightgreen);
+  color: var(--color-dark);
+}
+
+.btn-search {
+  display: inline-flex;
+  justify-content: space-between;
+  background-color: transparent;
+  color: var(--color-lightgreen);
+  border: 1px solid var(--color-lightgreen);
+  min-width: 240px;
+}
+
+.btn-menu {
+  display: none;
+}
+
+.btn-book-tee-time {
+  display: none;
+}
+
+.btn-search-icon {
+  display: none;
+}
+
+.btn-search svg {
+    display: flex-end;
+    width: var(--space-3);
+    height: var(--space-3);
+}
+
+
+
+/* =========== Responsive Design ============ */
+
+@media (max-width: 1050px) {
+  .nav-items {
+    display: none;
+  }
+  .btn-menu{
+    display: inline-flex;
+    background-color: transparent;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    color: var(--color-lightgreen);
+    justify-content: center;
+    color: var(--color-lightgreen);
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-search {
+    display: none;
+  }
+  .btn-tee-time {
+    display:none;
+  }
+  .btn-book-tee-time {
+    display: inline-flex;
+    background-color: transparent;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    color: var(--color-lightgreen);
+    justify-content: center;
+  }
+  .btn-search-icon {
+    display: inline-flex;
+    background-color: transparent;
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+    color: var(--color-lightgreen);
+    justify-content: center;
+  }
+  .btn-book-tee-time img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+
+
+
+
+/* =========== Design of Hero Section ============ */
+
+
+
+
+
+
+
+
+/* =========== Design of Footer Section ============ */
