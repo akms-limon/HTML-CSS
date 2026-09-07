@@ -726,6 +726,14 @@ select:focus-visible {
     border-radius: 8px;
 }
 
+.golf-highlights-wrapper {
+    width: 100%;
+}
+
+.golf-highlights-scrollbar {
+    display: none;
+}
+
 .golf-highlights-title {
     margin: 0 0 20px;
     font-size: 1.8rem;
@@ -1748,8 +1756,7 @@ select:focus-visible {
 
     /* Main Content */
     .main-grid {
-        grid-template-columns: minmax(0, 1fr) 320px;
-        gap: var(--space-3);
+        grid-template-columns: 1fr;
     }
 
     /* Highlights */
@@ -1797,7 +1804,7 @@ select:focus-visible {
     }
 
     .golf-highlights-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .golf-highlights-items {
@@ -2100,7 +2107,7 @@ select:focus-visible {
     }
 
     .golf-highlights-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .golf-highlights-card {
@@ -2443,7 +2450,7 @@ select:focus-visible {
         width: 100%;
     }
 
-    /* Golf Highlights */
+  /* Golf Highlights */
     .golf-highlights {
         margin: 12px auto;
         padding: 28px 18px 20px;
@@ -2456,36 +2463,54 @@ select:focus-visible {
     }
 
     .golf-highlights-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: flex;
         gap: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 0;
     }
 
-    .golf-highlights-card {
-        min-height: 300px;
-        padding: 18px 14px;
-    }
-
-    .golf-highlights-card:nth-child(n + 3) {
+    .golf-highlights-cards::-webkit-scrollbar {
         display: none;
     }
 
-    .card-icon {
-        width: 34px;
-        height: 34px;
-        margin-bottom: 18px;
+    .golf-highlights-card {
+        flex: 0 0 calc((100% - 8px) / 2);
+        min-height: 300px;
+        padding: 18px 14px;
+        scroll-snap-align: start;
     }
 
-    .card-title {
-        font-size: 16px;
+    /* Always-visible custom scroll indicator */
+    .golf-highlights-scrollbar {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 6px;
+        margin-top: 10px;
+        background-color: #d9dddd;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
-    .card-text,
-    .card-muted {
-        font-size: 12px;
-        line-height: 1.45;
+    .golf-highlights-scrollbar-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        min-width: 40px;
+        background-color: #8fdc99;
+        border-radius: 10px;
+        transform: translateX(0);
+        transition: transform 0.05s linear;
     }
 
-    .golf-highlights-items {
+.golf-highlights-items {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         column-gap: 12px;
         margin-top: 24px;

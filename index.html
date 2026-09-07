@@ -529,7 +529,8 @@
                         <h2 class="golf-highlights-title">Eagle Creek Golf Club Highlights</h2>
 
                         <!-- Top 4 Cards -->
-                        <div class="golf-highlights-cards">
+                        <div class="golf-highlights-wrapper">
+                            <div class="golf-highlights-cards">
                             <article class="golf-highlights-card">
                                 <img class="card-icon" src="https://api.iconify.design/lucide/flag-triangle-right.svg" alt="">
                                 <h3 class="card-title">Par and Difficulty</h3>
@@ -564,6 +565,12 @@
                                 <h3 class="card-notable-title">Notable Features</h3>
                                 <p class="card-muted">Tree-lined fairways, undulating<br>greens, and strategically<br>placed bunkers. Water hazards<br>come into play on several<br>holes.</p>
                             </article>
+                            </div>
+
+                            <!-- Mobile scroll indicator -->
+                            <div class="golf-highlights-scrollbar" aria-hidden="true">
+                                <div class="golf-highlights-scrollbar-thumb"></div>
+                            </div>
                         </div>
 
                         <!-- Bottom 6 Items -->
@@ -1007,6 +1014,51 @@
         </footer>
         <script>
             lucide.createIcons();
+
+            /* Golf Highlights mobile scroll indicator */
+            const golfHighlightsCards = document.querySelector(".golf-highlights-cards");
+            const golfHighlightsThumb = document.querySelector(".golf-highlights-scrollbar-thumb");
+
+            function updateGolfHighlightsScrollbar() {
+                if (!golfHighlightsCards || !golfHighlightsThumb) {
+                    return;
+                }
+
+                const visibleWidth = golfHighlightsCards.clientWidth;
+                const totalWidth = golfHighlightsCards.scrollWidth;
+                const maxScroll = totalWidth - visibleWidth;
+
+                if (maxScroll <= 0) {
+                    golfHighlightsThumb.style.width = "100%";
+                    golfHighlightsThumb.style.transform = "translateX(0)";
+                    return;
+                }
+
+                const trackWidth = golfHighlightsCards.clientWidth;
+                const thumbWidth = Math.max(
+                    trackWidth * (visibleWidth / totalWidth),
+                    40
+                );
+                const maxThumbMove = trackWidth - thumbWidth;
+                const scrollProgress = golfHighlightsCards.scrollLeft / maxScroll;
+
+                golfHighlightsThumb.style.width = `${thumbWidth}px`;
+                golfHighlightsThumb.style.transform =
+                    `translateX(${maxThumbMove * scrollProgress}px)`;
+            }
+
+            if (golfHighlightsCards) {
+                golfHighlightsCards.addEventListener(
+                    "scroll",
+                    updateGolfHighlightsScrollbar,
+                    { passive: true }
+                );
+
+                window.addEventListener("resize", updateGolfHighlightsScrollbar);
+                window.addEventListener("load", updateGolfHighlightsScrollbar);
+
+                updateGolfHighlightsScrollbar();
+            }
         </script>
     </body>
 </html>
