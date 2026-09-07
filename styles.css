@@ -454,6 +454,7 @@ select:focus-visible {
     background-size: cover;
     background-position: center;
     position: relative;
+    container-type: inline-size;
 }
 
 .property-card__photo img {
@@ -463,10 +464,7 @@ select:focus-visible {
 }
 
 .property-card__badge {
-    position: absolute;
     text-transform: uppercase;
-    top: var(--space-2);
-    left: var(--space-2);
     background: rgba(5, 9, 4, 0.566);
     color: rgb(233, 231, 231);
     font-size: var(--font-small);
@@ -480,11 +478,9 @@ select:focus-visible {
 }
 
 .property-card__icons {
-    position: absolute;
-    top: var(--space-3);
-    right: var(--space-2);
     display: flex;
     gap: 4px;
+    flex-shrink: 0;
 }
 
 .property-card__icons span {
@@ -504,9 +500,30 @@ select:focus-visible {
     padding: var(--space-3);
 }
 
-.property-card__score {
-    display: inline-flex;
+.property-card-badge-and-icon {
+
+    position: absolute;
+
+    top: var(--space-2);
+
+    left: var(--space-2);
+
+    right: var(--space-2);
+
+    display: flex;
+
     align-items: center;
+
+    justify-content: space-between;
+
+    gap: 8px;
+
+}
+
+.property-card__score {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 6px;
     font-size: 0.8rem;
     color: #539e03;
@@ -516,9 +533,7 @@ select:focus-visible {
 .exceptional-stars {
     color: white;
     background-color: #539e03;
-    /*this logo shoulb be circle*/
     border-radius: 50%;
-    /*height and width should be equal to make it a circle*/
     width: var(--space-3);
     height: var(--space-3);
     display: flex;
@@ -543,7 +558,15 @@ select:focus-visible {
 }
 
 .exceptional-reviews {
-    color: black
+    color: black;
+    white-space: nowrap;
+}
+
+@container (max-width: 190px) {
+    .property-card-badge-and-icon {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .property-card__score-num {
@@ -624,6 +647,7 @@ select:focus-visible {
     padding: 1px;
     color: var(--text-secondary);
 }
+
 .map-panel {
     top: var(--space-4);
     border: 1px solid var(--sky-blue);
@@ -655,7 +679,7 @@ select:focus-visible {
     width: max-content;
     gap: var(--space-2);
     margin: var(--space-4) 0;
-    font-size:1rem;
+    font-size: var(--space-3);
     font-weight: var(--font-bold);
     color: var(--text-secondary);
 }
@@ -737,6 +761,10 @@ select:focus-visible {
     margin: 0 0 12px;
     font-size: var(--font-xlarge);
     font-weight: var(--font-bold);
+}
+
+.card-small-title {
+    overflow-wrap: break-word;
 }
 
 .card-text,
@@ -955,12 +983,12 @@ select:focus-visible {
 
 .booking-span {
     color: rgb(51, 51, 125);
-    font-size: 1rem;
+    font-size: var(--space-3);
     font-weight: var(--font-bold);
 }
 .dot-com-span {
     color: rgb(62, 168, 210);
-    font-size: 1rem;
+    font-size: var(--space-3);
     font-weight: var(--font-bold);
 }
 
@@ -1651,6 +1679,9 @@ select:focus-visible {
 }
 
 .footer-selects button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 52px;
     padding: 0 18px;
@@ -1664,7 +1695,6 @@ select:focus-visible {
 }
 
 .footer-selects button span {
-    float: right;
     font-size: 17px;
 }
 
@@ -1684,10 +1714,114 @@ select:focus-visible {
 
 
 
+/* Small Desktop: 1024px - 1279px */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+    /* Container */
+    .container {
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
+
+    /* Navigation */
+    .nav {
+        gap: var(--space-3);
+    }
+
+    .nav-items {
+        gap: var(--space-2);
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+
+    .btn-search {
+        min-width: 160px;
+    }
+
+    /* Main Content */
+    .main-grid {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: var(--space-3);
+    }
+
+    /* Highlights */
+    .highlights {
+        gap: var(--space-3);
+        padding: 10px 16px;
+    }
+
+    .highlights-stats {
+        gap: var(--space-3);
+    }
+
+    .highlights-par,
+    .highlights-yards,
+    .highlights-course {
+        gap: var(--space-2);
+    }
+
+    /* Find Stays */
+    .results-layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: var(--space-3);
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .property-card__body {
+        padding: var(--space-2);
+    }
+
+    .property-card__actions {
+        gap: var(--space-1);
+    }
+
+    .property-card__actions .btn {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Golf Highlights */
+    .golf-highlights {
+        padding: 36px 36px 0;
+    }
+
+    .golf-highlights-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .golf-highlights-items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 32px;
+    }
+
+    .golf-highlights-item {
+        gap: 16px;
+    }
+
+    /* Booking / Aside */
+    .aside-main-content {
+        padding: var(--space-2);
+    }
+
+    .aside-footer {
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+    }
+
+}
+
+
+
 /* Responsive Design */
 
 /* Media Queries for Tablets */
-@media (max-width: 1050px) {
+@media (min-width: 768px) and (max-width: 1279px) {
     .nav-items {
         display: none;
     }
@@ -2114,7 +2248,7 @@ select:focus-visible {
 }
 
 /* Media Queries for Mobile Devices */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     
     /* Navigation Bar */
     .btn-search,
