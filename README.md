@@ -4,7 +4,7 @@ A pixel-fidelity recreation of a "Stay & Play" golf course landing page, built w
 
 ## 🔗 Live Links
 - **Live Preview:** *[Live Link](https://akms-limon.github.io/HTML-CSS/)*
-- **Repository:** *[(GitHub repo link)](https://github.com/akms-limon/HTML-CSS)*
+- **Repository:** *[GitHub repo link](https://github.com/akms-limon/HTML-CSS)*
 
 ## 📁 Project Structure
 ```
